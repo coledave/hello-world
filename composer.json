@@ -1,0 +1,13 @@
+{
+    "name": "dcole-inviqa/hello-world",
+    "description": "Test description",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "David Cole",
+            "email": "dcole@inviqa.com"
+        }
+    ],
+    "require": {}
+}

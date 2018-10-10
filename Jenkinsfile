@@ -24,17 +24,10 @@ pipeline {
           }
           dir ('./charts/hello-world') {
             container('nodejs') {
-              sh "cat extraValues.yaml"  
               sh "jx preview --app $APP_NAME --dir ../.."
             }
           }
         }
       }
     }
-    post {
-        always {
-            cleanWs()
-        }
-    }
-  }
-
+}

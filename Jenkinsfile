@@ -19,13 +19,13 @@ pipeline {
         }
         steps {
           container('nodejs') {
-            sh 'export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml'
+            sh "export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml"
             sh "jx step post build --image $DOCKER_REGISTRY/$ORG/$APP_NAME:$PREVIEW_VERSION"
           }
-          dir ('./charts/hello-world') {
+          dir ('./charts/preview') {
             container('nodejs') {
-              sh "jx preview --app $APP_NAME --dir ../.. || true"
-              sh "cat extraValues.yaml"
+              sh "make preview"
+              sh "jx preview --app $APP_NAME --dir ../.."
             }
           }
         }

@@ -25,7 +25,7 @@ pipeline {
           dir ('./charts/hello-world') {
             container('nodejs') {
               sh "jx preview --app $APP_NAME --dir ../.. || true"
-              sh "cat extraValues.yml"
+              sh "cat extraValues.yaml"
             }
           }
         }

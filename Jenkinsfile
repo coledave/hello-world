@@ -24,7 +24,8 @@ pipeline {
           }
           dir ('./charts/hello-world') {
             container('nodejs') {
-              sh "jx preview --app $APP_NAME --dir ../.."
+              sh "jx preview --app $APP_NAME --dir ../.. || true"
+              sh "ls"
             }
           }
         }

@@ -5,7 +5,7 @@ build:
     envTemplate:
       template: "{{.DOCKER_REGISTRY}}/dcole-inviqa/hello-world:{{.VERSION}}"
   artifacts:
-  - imageName: changeme
+  - imageName: hello-world
     workspace: .
     docker: {}
   local: {}

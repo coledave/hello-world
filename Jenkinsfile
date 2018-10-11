@@ -24,6 +24,7 @@ pipeline {
           dir ('./charts/preview') {
             container('nodejs') {
               sh "make preview"
+              sh "jx step helm build"
               sh "jx preview --app $APP_NAME --dir ../.."
             }
           }

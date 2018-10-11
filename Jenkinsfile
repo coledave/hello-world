@@ -13,13 +13,13 @@ pipeline {
           branch 'PR-*'
         }
         environment {
-          PREVIEW_VERSION = "0.0.0-SNAPSHOT-$BRANCH_NAME-$BUILD_NUMBER"
+          PREVIEW_VERSION = "0.0.0-SNAPSHOT-PR-3-5"
           PREVIEW_NAMESPACE = "$APP_NAME-$BRANCH_NAME".toLowerCase()
           HELM_RELEASE = "$PREVIEW_NAMESPACE".toLowerCase()
         }
         steps {
           container('nodejs') {
-            sh "export VERSION=$PREVIEW_VERSION && skaffold build -f skaffold.yaml"
+            sh "export VERSION=$PREVIEW_VERSION"
           }
           dir ('./charts/preview') {
             container('nodejs') {
